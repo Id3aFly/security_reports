@@ -1,0 +1,141 @@
+gef➤  disass main
+Dump of assembler code for function main:
+   0x0000555555554740 <+0>:	push   rbp
+   0x0000555555554741 <+1>:	mov    rbp,rsp
+   0x0000555555554744 <+4>:	sub    rsp,0x10
+   0x0000555555554748 <+8>:	mov    DWORD PTR [rbp-0x4],edi
+   0x000055555555474b <+11>:	mov    QWORD PTR [rbp-0x10],rsi
+   0x000055555555474f <+15>:	cmp    DWORD PTR [rbp-0x4],0x2
+   0x0000555555554753 <+19>:	jne    0x55555555476e <main+46>
+   0x0000555555554755 <+21>:	mov    rax,QWORD PTR [rbp-0x10]
+   0x0000555555554759 <+25>:	add    rax,0x8
+   0x000055555555475d <+29>:	mov    rax,QWORD PTR [rax]
+   0x0000555555554760 <+32>:	mov    rdi,rax
+   0x0000555555554763 <+35>:	call   0x5555555545e0 <strlen@plt>
+   0x0000555555554768 <+40>:	cmp    rax,0x25
+   0x000055555555476c <+44>:	je     0x555555554790 <main+80>
+   0x000055555555476e <+46>:	mov    rax,QWORD PTR [rbp-0x10]
+   0x0000555555554772 <+50>:	mov    rax,QWORD PTR [rax]
+   0x0000555555554775 <+53>:	mov    rsi,rax
+   0x0000555555554778 <+56>:	lea    rdi,[rip+0x5799]        # 0x555555559f18
+   0x000055555555477f <+63>:	mov    eax,0x0
+   0x0000555555554784 <+68>:	call   0x5555555545f0 <printf@plt>
+   0x0000555555554789 <+73>:	mov    eax,0x1
+   0x000055555555478e <+78>:	jmp    0x5555555547ca <main+138>
+   0x0000555555554790 <+80>:	mov    rax,QWORD PTR [rbp-0x10]
+   0x0000555555554794 <+84>:	add    rax,0x8
+   0x0000555555554798 <+88>:	mov    rax,QWORD PTR [rax]
+   0x000055555555479b <+91>:	mov    rdi,rax
+   0x000055555555479e <+94>:	call   0x5555555561f6 <check_0>
+   0x00005555555547a3 <+99>:	test   al,al
+   0x00005555555547a5 <+101>:	je     0x5555555547ae <main+110>
+   0x00005555555547a7 <+103>:	mov    BYTE PTR [rip+0x209893],0x1        # 0x55555575e041 <success>
+=> 0x00005555555547ae <+110>:	movzx  eax,BYTE PTR [rip+0x20988c]        # 0x55555575e041 <success>
+   0x00005555555547b5 <+117>:	test   al,al
+   0x00005555555547b7 <+119>:	je     0x5555555547c5 <main+133>
+   0x00005555555547b9 <+121>:	lea    rdi,[rip+0x5778]        # 0x555555559f38
+   0x00005555555547c0 <+128>:	call   0x5555555545d0 <puts@plt>
+   0x00005555555547c5 <+133>:	mov    eax,0x0
+   0x00005555555547ca <+138>:	leave  
+   0x00005555555547cb <+139>:	ret    
+End of assembler dump.
+
+gef➤  disass check_0
+Dump of assembler code for function check_0:
+   0x00005555555561f6 <+0>:	push   rbp
+   0x00005555555561f7 <+1>:	mov    rbp,rsp
+   0x00005555555561fa <+4>:	sub    rsp,0x20
+   0x00005555555561fe <+8>:	mov    QWORD PTR [rbp-0x18],rdi
+   0x0000555555556202 <+12>:	mov    rax,QWORD PTR [rbp-0x18]
+   0x0000555555556206 <+16>:	movzx  eax,BYTE PTR [rax]
+   0x0000555555556209 <+19>:	movsx  eax,al
+   0x000055555555620c <+22>:	and    eax,0x1
+   0x000055555555620f <+25>:	test   eax,eax
+   0x0000555555556211 <+27>:	setne  al
+   0x0000555555556214 <+30>:	mov    BYTE PTR [rbp-0x1],al
+   0x0000555555556217 <+33>:	mov    rax,QWORD PTR [rbp-0x18]
+   0x000055555555621b <+37>:	mov    rdi,rax
+   0x000055555555621e <+40>:	call   0x555555554e3c <check_1>
+   0x0000555555556223 <+45>:	test   al,al
+   0x0000555555556225 <+47>:	je     0x555555556234 <check_0+62>
+   0x0000555555556227 <+49>:	cmp    BYTE PTR [rbp-0x1],0x0
+   0x000055555555622b <+53>:	je     0x555555556234 <check_0+62>
+   0x000055555555622d <+55>:	mov    eax,0x1
+   0x0000555555556232 <+60>:	jmp    0x555555556239 <check_0+67>
+   0x0000555555556234 <+62>:	mov    eax,0x0
+   0x0000555555556239 <+67>:	and    eax,0x1
+   0x000055555555623c <+70>:	leave  
+   0x000055555555623d <+71>:	ret    
+End of assembler dump.
+
+gef➤  disass check_295
+Dump of assembler code for function check_295:
+   0x0000555555559d8a <+0>:	push   rbp
+   0x0000555555559d8b <+1>:	mov    rbp,rsp
+   0x0000555555559d8e <+4>:	mov    QWORD PTR [rbp-0x18],rdi
+   0x0000555555559d92 <+8>:	mov    rax,QWORD PTR [rbp-0x18]
+   0x0000555555559d96 <+12>:	add    rax,0x24
+   0x0000555555559d9a <+16>:	movzx  eax,BYTE PTR [rax]
+   0x0000555555559d9d <+19>:	not    eax
+   0x0000555555559d9f <+21>:	shr    al,0x7
+   0x0000555555559da2 <+24>:	mov    BYTE PTR [rbp-0x1],al
+   0x0000555555559da5 <+27>:	movzx  eax,BYTE PTR [rbp-0x1]
+   0x0000555555559da9 <+31>:	pop    rbp
+   0x0000555555559daa <+32>:	ret    
+End of assembler dump.
+
+gef➤  disass check_294
+Dump of assembler code for function check_294:
+   0x0000555555556660 <+0>:	push   rbp
+   0x0000555555556661 <+1>:	mov    rbp,rsp
+   0x0000555555556664 <+4>:	sub    rsp,0x20
+   0x0000555555556668 <+8>:	mov    QWORD PTR [rbp-0x18],rdi
+   0x000055555555666c <+12>:	mov    rax,QWORD PTR [rbp-0x18]
+   0x0000555555556670 <+16>:	add    rax,0x24
+   0x0000555555556674 <+20>:	movzx  eax,BYTE PTR [rax]
+   0x0000555555556677 <+23>:	movsx  eax,al
+   0x000055555555667a <+26>:	and    eax,0x40
+   0x000055555555667d <+29>:	test   eax,eax
+   0x000055555555667f <+31>:	setne  al
+   0x0000555555556682 <+34>:	mov    BYTE PTR [rbp-0x1],al
+   0x0000555555556685 <+37>:	mov    rax,QWORD PTR [rbp-0x18]
+   0x0000555555556689 <+41>:	mov    rdi,rax
+   0x000055555555668c <+44>:	call   0x555555559d8a <check_295>
+   0x0000555555556691 <+49>:	test   al,al
+   0x0000555555556693 <+51>:	je     0x5555555566a2 <check_294+66>
+   0x0000555555556695 <+53>:	cmp    BYTE PTR [rbp-0x1],0x0
+   0x0000555555556699 <+57>:	je     0x5555555566a2 <check_294+66>
+   0x000055555555669b <+59>:	mov    eax,0x1
+   0x00005555555566a0 <+64>:	jmp    0x5555555566a7 <check_294+71>
+   0x00005555555566a2 <+66>:	mov    eax,0x0
+   0x00005555555566a7 <+71>:	and    eax,0x1
+   0x00005555555566aa <+74>:	leave  
+   0x00005555555566ab <+75>:	ret    
+End of assembler dump.
+
+
+gef➤  disass check_7
+Dump of assembler code for function check_7:
+   0x0000555555559276 <+0>:	push   rbp
+   0x0000555555559277 <+1>:	mov    rbp,rsp
+   0x000055555555927a <+4>:	sub    rsp,0x20
+   0x000055555555927e <+8>:	mov    QWORD PTR [rbp-0x18],rdi
+   0x0000555555559282 <+12>:	mov    rax,QWORD PTR [rbp-0x18]
+   0x0000555555559286 <+16>:	movzx  eax,BYTE PTR [rax]
+   0x0000555555559289 <+19>:	not    eax
+   0x000055555555928b <+21>:	shr    al,0x7
+   0x000055555555928e <+24>:	mov    BYTE PTR [rbp-0x1],al
+   0x0000555555559291 <+27>:	mov    rax,QWORD PTR [rbp-0x18]
+   0x0000555555559295 <+31>:	mov    rdi,rax
+   0x0000555555559298 <+34>:	call   0x555555557c10 <check_8>
+   0x000055555555929d <+39>:	test   al,al
+   0x000055555555929f <+41>:	je     0x5555555592ae <check_7+56>
+   0x00005555555592a1 <+43>:	cmp    BYTE PTR [rbp-0x1],0x0
+   0x00005555555592a5 <+47>:	je     0x5555555592ae <check_7+56>
+   0x00005555555592a7 <+49>:	mov    eax,0x1
+   0x00005555555592ac <+54>:	jmp    0x5555555592b3 <check_7+61>
+   0x00005555555592ae <+56>:	mov    eax,0x0
+   0x00005555555592b3 <+61>:	and    eax,0x1
+   0x00005555555592b6 <+64>:	leave  
+   0x00005555555592b7 <+65>:	ret    
+End of assembler dump.
