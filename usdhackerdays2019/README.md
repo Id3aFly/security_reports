@@ -23,8 +23,8 @@ scp -r user@hdc:~ /local/path
 Apart from the default files (.bash_history, ...) there are four folders and one file: bin, Desktop, Documents, Pictures and .secret.pdf. Each of these hides a flag. The extraction of the sixth flag (thide), which is hidden in another spot, is explained in section 6.
 
 ![flag1 - ~/bin/token](flag1-bin-token.md) - Reversing\
-![flag2 - ~/desktop/USB_IMG.img](flag2-desktop-usb-image.md) - File analysis\
-![flag3 - ~/documents/token.pdf.enc](flag3-documents-token.md) - Vulnerability in AES implementation\
+![flag2 - ~/desktop/USB_IMG.img](flag2-desktop-usb-img.md) - File analysis\
+![flag3 - ~/documents/token.pdf.enc](flag3-documents-token.pdf.md) - Vulnerability in AES implementation\
 ![flag4 - ~/pictures/sloth.jpg](flag4-sloth.md) - File analysis + password cracking\
 ![flag5 - ~/.secret.pdf](flag5-secret.md) - password cracking\
 ![flag6 - /usr/bin/thide](flag6-thide.md) - Reversing
