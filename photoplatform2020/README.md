@@ -2,13 +2,12 @@
 
 ## Background
 
-In early 2020 I was looking through some pictures at the website of a local photographer. Apart from common shootings the company also took pictures of the graduation ceremonies at my former university. Most photo albums at that website were secured by a password, and I got a valid password from my university to view the pictures of my graduation.
-After entering the password I was able to see all pictures of the album in a gallery view, or to see a single picture within a single-photo view. 
+In early 2020 I looked at some pictures on the website of a local photographer. Apart from usual shootings, the company also took pictures of the graduation ceremonies of my former university. Most of the photo albums on this website were password protected and I received a valid password from my university to view the pictures of my graduation ceremony. After entering the password, I was able to see all the pictures in the album in a gallery view or a single picture in a single-image view.
 
 
 ## Vulnerability Description
 
-When browsing through all the photos I noticed that there are some GET-parameters in the URL.
+While browsing through all the photos I noticed that there are some GET-parameters in the URL.
 
 ### gallery view
 The **gallery view url** had the following scheme:
@@ -20,9 +19,9 @@ The single-photo view url had the following scheme:
 <pre>www.[URLofVulnWebsite].de/includes/thumb.php?<b>iid=[ImageID]</b>&<b>eid=[AlbumID]</b>&<b>maxwidth=[Width]</b></pre>
 - The parameter **eid=[AlbumID]** is used as explained above.
 - The parameter **iid=[ImageID]** defines which image of the current album is shown.
-- The parameter **maxwidth=[Width]** determines the width of the displayed image. Usually the default parameter was set to 500, which led to a downscaling of the image. But by increasing this number to an arbitrary value larger than the width of the original file, the original file is displayed with best quality.
+- The parameter **maxwidth=[Width]** determines the width of the displayed image. Usually the default parameter was set to 500, which led to a downscaling of the image. However, by increasing this number to an arbitrary value larger than the width of the original file, the original file is displayed with the best quality.
 
-I tried out to manipulate those parameters. Thus I found out I not only was able to access all the pictures of my graduation, but also get hold of any image in any album at the server with a direct url (even it was protected with an unknown password). This vulnerability can be classified as [Broken Access Control](https://owasp.org/www-community/Broken_Access_Control) which could be attacked by [Forced Browsing](https://owasp.org/www-community/attacks/Forced_browsing).
+I tried to manipulate those parameters. I found out that not only I was able to access all the pictures of my graduation ceremony, but I could also access any image in any album at the server with a direct url (even if it was protected with an unknown password). This vulnerability can be classified as [Broken Access Control](https://owasp.org/www-community/Broken_Access_Control) which could be attacked by [Forced Browsing](https://owasp.org/www-community/attacks/Forced_browsing).
 
 ## Exploitation Examples
 
@@ -41,7 +40,7 @@ The server even had the possibility for an anonymous ftp login, which was report
 
 ## Disclosure Process
 
-After a short consultation with my IT security Professor, [Prof. Felix Freiling](https://www.cs1.tf.fau.de/person/felix-freiling/) of FAU Erlangen-Nürnbergs's IT Security Infrastructures chair, I decided to notify the company immediately: The fact that especially the private shootings were tagged with the customer's name could be very critical.
+After consulting my IT security Professor, [Prof. Felix Freiling](https://www.cs1.tf.fau.de/person/felix-freiling/) of FAU Erlangen-Nürnberg's IT Security Infrastructures chair, I decided to notify the company immediately: The fact that especially the private shootings were tagged with the customer's name were very critical.
 
 - 3rd of February 2020: The company got notfied of the two vulnerabilities
 - 6th of February 2020: Response: Considering migration to commercial service 
